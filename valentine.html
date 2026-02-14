@@ -1,0 +1,123 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💘</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  font-family:"Comic Sans MS",cursive;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  width:90%;
+  max-width:380px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+h1{color:#ff3366;}
+
+img.hug{
+  width:100%;
+  border-radius:15px;
+  margin:15px 0;
+}
+
+.buttons{
+  position:relative;
+  height:140px;
+}
+
+button{
+  padding:12px 25px;
+  font-size:16px;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  position:absolute;
+}
+
+#yes{
+  background:#ff3366;
+  color:white;
+  left:30px;
+}
+
+#no{
+  background:#ddd;
+  right:30px;
+}
+
+.quote{
+  color:#ff3366;
+  min-height:40px;
+  font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>💘 Hey Roshan, Be My Valentine?</h1>
+  <p>You can try NO… but good luck 😌</p>
+
+  <!-- HUGGING IMAGE HERE -->
+  <img class="hug" src="hug.jpg" alt="Hugging Couple">
+
+  <div class="buttons">
+    <button id="yes">YES 💖</button>
+    <button id="no">NO 😏</button>
+  </div>
+
+  <div class="quote" id="quote"></div>
+  <h2 id="result"></h2>
+</div>
+
+<script>
+const noBtn=document.getElementById("no");
+const yesBtn=document.getElementById("yes");
+const quote=document.getElementById("quote");
+const result=document.getElementById("result");
+
+const lines=[
+ "Oops 😜 almost clicked YES!",
+ "No button is shy 😂",
+ "Destiny says YES only 💘",
+ "Stop running Roshan 😏",
+ "My heart removed NO option 💖",
+ "Nice try, future Valentine 😘",
+ "Universe shipped YES already 🌍💞"
+];
+
+noBtn.addEventListener("mouseover",move);
+noBtn.addEventListener("click",move);
+
+function move(){
+ const x=Math.random()*200-100;
+ const y=Math.random()*120-60;
+ noBtn.style.transform=`translate(${x}px,${y}px)`;
+ quote.textContent=lines[Math.floor(Math.random()*lines.length)];
+}
+
+yesBtn.onclick=()=>{
+ result.innerHTML="🤗💖 Yayyy! Roshan said YES – hugs unlocked 💖🤗";
+ noBtn.style.display="none";
+ yesBtn.style.display="none";
+};
+</script>
+
+</body>
+</html>
+
